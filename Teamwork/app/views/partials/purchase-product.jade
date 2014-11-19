@@ -1,0 +1,23 @@
+.container
+    .well
+        form.form-horizontal(method='post', action='/api/purchases', enctype='multipart/form-data')
+            fieldset
+                legend Purchase Product
+                .form-group
+                    label.col-md-2.control-label(for="address") Address
+                    .col-md-10
+                        input.form-control(type="text", ng-model="purchase.address", name="address" required)
+                .form-group
+                    label.col-md-2.control-label(for="paymentMethod") Payment Method
+                    .col-md-10
+                        select.form-control(ng-model="purchase.paymentMethod", name="paymentMethod", required)
+                            option(value='creditCard') Credit Card
+                            option(value='paymentOrder') Payment Order
+                            option(value='onDelivery') On Delivery
+                .form-group(ng-show='purchase.paymentMethod=="creditCard"')
+                    label.col-md-2.control-label(for="cardNumber") Credit Card Number
+                    .col-md-10
+                        input.form-control(type="text", ng-model="purchase.creditCardNumber", name="cardNumber" required)
+                .container
+                    a.btn.btn-primary(ng-click="makePurchase(purchase)") Purchase
+                    a.btn.btn-primary(href="#/products/{{productId}}") Cancel

@@ -1,0 +1,35 @@
+.container
+    .well
+        form.form-horizontal(method='post', action='/api/products', enctype='multipart/form-data')
+            fieldset
+                legend Create New Product
+                .form-group
+                    label.col-md-2.control-label(for="product-name") Product Name
+                    .col-md-10
+                        input.form-control(type="text", ng-model="product.name", name="name" required)
+                .form-group
+                    label.col-md-2.control-label(for="description") Description
+                    .col-md-10
+                        input.form-control(type="text", ng-model="product.description", name="description", required)
+                .form-group
+                    label.col-md-2.control-label(for="price") Price
+                    .col-md-10
+                        input.form-control(type="text", ng-model="product.price", name="price", required)
+                .form-group
+                    label.col-md-2.control-label(for="count") Count
+                    .col-md-10
+                        input.form-control(type="text", ng-model="product.count", name="count", required)
+                .form-group
+                    label.col-md-2.control-label(for="categories") Categories TODO
+                    .col-md-10
+                        input.form-control(type="text", ng-model="product.categories", name="categories", required)
+                .form-group
+                    label.col-md-2.control-label(for="picture") Picture
+                    .col-md-10
+                        //input.form-control(type="file", ng-model="product.picture", name="file")
+                        input.form-control(type="file", ng-file-select="onFileSelect($files)")
+                .pull-right
+                    //button.btn.btn-primary(ng-click="createProduct(product)", ng-disabled="createProductForm.$invalid") Send
+                    //input(type="submit" value="Submit")
+                    .button(ng-file-select="onFileSelect($files)" data-multiple="true")
+                    a.btn.btn-primary(href="#/") Cancel

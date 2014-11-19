@@ -1,0 +1,2 @@
+div(ng-repeat="product in products | filter: { featured: true }")
+    a(href="#/products/{{ product._id }}") {{ product.name }}

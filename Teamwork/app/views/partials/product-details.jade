@@ -1,0 +1,29 @@
+.container
+    .col-lg-3
+        .row
+            .panel
+                img(src='/images/{{product.picture}}')
+    .col-lg-9
+        .row
+            h2.col-md-4 {{ product.name }}
+            h2.col-md-2.big-text.pull-right.text-right Price: {{ product.price}}
+        .row
+            .panel.panel-primary
+                .panel-heading Description:
+                .panel-body {{product.description}}
+        .row
+            .panel.panel-primary
+            .panel-heading Categories
+            .panel-body
+                ul.list-group
+                    li.list-group-item(ng-repeat="category in product.categories") {{ category }}
+        .row
+            .panel.panel-primary
+            .panel-heading Reviews
+            .panel-body
+                ul.list-group
+                    li.list-group-item(ng-repeat="review in reviews") By:{{ review.user }}, Date: {{review.date}}, Content: {{review.text}}
+        .container
+            .row
+                a.btn.btn-primary(href='#/products/{{product._id}}/purchase') Purchase
+                a.btn.btn-primary(href='#/products/{{ product._id }}/reviews') Add review

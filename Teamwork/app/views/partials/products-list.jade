@@ -1,0 +1,29 @@
+.container
+    .page-header
+        h2.text-center Products
+    .row
+        .col-md-6
+            .col-md-2.big-text Search
+            .col-md-8
+                input.form-control(type="text", placeholder="Search", ng-model="search")
+        .col-md-6
+            .col-md-2.big-text Sort
+            .col-md-8
+                select.form-control(ng-model="sort")
+                    option(value=" " ng-selected="'true'") Default
+                    option(value="name") Name
+                    option(value="price") Price
+    .row
+        button.btn.btn-primary(ng-click="createProductRedirect()", ng-show="isAdmin") Create new product
+    br
+    table.table
+        tr
+            th Image
+            th Name
+            th Price
+        tr(ng-repeat="product in products | filter: search | orderBy: sort")
+            td
+                img(ng-src="/images/{{product.picture}}", height='150px', width='100px')
+            td
+                a(href="#/products/{{ product._id }}") {{ product.name }}
+            td {{ product.price }}

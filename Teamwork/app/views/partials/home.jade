@@ -1,0 +1,13 @@
+.container
+    .jumbotron
+        h1 HoraE-Commerce E - Shop
+        h2 One more brick in the consumption wall
+    .row
+        .col-md-6
+            .panel.panel-info
+                .panel-heading.text-center Most popular
+                .panel-body(ng-include="'/partials/featured-products'")
+        .col-md-6
+            .panel.panel-info
+                .panel-heading.text-center Last added
+                .panel-body(ng-include="'/partials/new-products'")

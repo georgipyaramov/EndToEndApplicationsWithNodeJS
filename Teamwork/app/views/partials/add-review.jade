@@ -1,0 +1,12 @@
+.container
+    .well
+        form.form-horizontal
+            fieldset
+                legend Create New Review
+                .form-group
+                    label.col-md-2.control-label(for="product-name") Review:
+                    .col-md-10
+                        textarea.form-control(rows="7" ng-model="review.text", required)
+                .pull-right
+                    .button.btn.btn-primary(ng-click="sendReview(prodId, review)") Send
+                    a.btn.btn-primary(href="#/") Cancel

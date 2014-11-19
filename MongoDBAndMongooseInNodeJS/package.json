@@ -1,0 +1,12 @@
+{
+  "name": "chat-db",
+  "version": "0.0.1",
+  "description": "",
+  "main": "./libs/chat-db.js",
+  "author": "drumev",
+  "license": "MIT",
+  "dependencies": {
+    "async": "^0.9.0",
+    "mongoose": "^3.8.17"
+  }
+}

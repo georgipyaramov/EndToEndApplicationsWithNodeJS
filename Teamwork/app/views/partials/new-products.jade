@@ -1,0 +1,6 @@
+div(ng-repeat="product in products | orderBy: '-name' | limitTo: 10")
+    .row
+        .col-md-3
+            | {{ product.name }}
+        .col-md-9
+            a(href="#/products/{{ product._id }}") {{ product.description }}

@@ -1,0 +1,22 @@
+extends includes/layout
+block main-content
+    header.nav.navbar-inverse.navbar-static-top(ng-controller="NavigationCtrl")
+        .container
+            .navbar-header
+                a.navbar-brand(href="#/") Super Shop
+            .navbar-collapse.collapse
+                ul.nav.navbar-nav
+                    li
+                        a(href="#/") Home
+                    li
+                        a(href="#/products") Products
+                    li(ng-show="identity.currentUser.isAdmin()")
+                        a(href="#/admin/users") Users
+                div(ng-include="'partials/login'")
+
+    section
+        div(ng-view)
+
+    footer
+        p.text-center
+            | &copy; Horae Team 2014
